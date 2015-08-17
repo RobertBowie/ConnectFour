@@ -1,0 +1,1 @@
+var RED = "R", BLACK = "B", BLANK = "_";
