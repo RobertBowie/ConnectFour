@@ -19,10 +19,51 @@ Game.prototype.printBoard = function() {
 
 Game.prototype.placePiece = function(col, piece) {
 //for col === 1 => search board[5][0], board[4][0]...
-  var colTrans = col - 1;
+  if(!piece){
+    piece = RED;
+  };
+  var colTrans = col - 1, rowInd, colInd;
   for(var i = 5; i >= 0; i--){ //search col for 1st empty
     if(this.board[i][colTrans] === BLANK){
-      return this.board[i][colTrans] = piece;
+      this.board[i][colTrans] = piece;
+      rowInd = i;
+      break;
     }
+  }
+  return [rowInd, colTrans, piece];
+};
+
+Game.prototype.winCheck = function(row, col, piece){
+  var thisBoard = this.board;
+  var spotCheck = function(modRow, modCol){
+    return (thisBoard[modRow] !== undefined && thisBoard[modCol] !== undefined && thisBoard[modRow][modCol] === piece);
+  };
+
+  if(spotCheck(row, col + 1) && spotCheck(row, col + 2) && spotCheck(row, col + 3)){
+    console.log(piece + "'s Win!")
+    return true;
+  } else if(spotCheck(row + 1, col + 1) && spotCheck(row + 2, col + 2) && spotCheck(row + 3, col + 3)){
+    console.log(piece + "'s Win!")
+    return true;
+  } else if(spotCheck(row + 1, col) && spotCheck(row + 2, col) && spotCheck(row + 3, col)){
+    console.log(piece + "'s Win!")
+    return true;
+  } else if(spotCheck(row - 1, col + 1) && spotCheck(row - 2, col + 2) && spotCheck(row - 3, col + 3)){
+    console.log(piece + "'s Win!")
+    return true;
+  } else if(spotCheck(row, col - 1) && spotCheck(row, col - 2) && spotCheck(row, col - 3)){
+    console.log(piece + "'s Win!")
+    return true;
+  } else if(spotCheck(row - 1, col - 1) && spotCheck(row - 2, col - 2) && spotCheck(row - 3, col - 3)){
+    console.log(piece + "'s Win!")
+    return true;
+  } else if(spotCheck(row - 1, col) && spotCheck(row - 2, col) && spotCheck(row - 3, col)){
+    console.log(piece + "'s Win!")
+    return true;
+  } else if(spotCheck(row - 1, col + 1) && spotCheck(row - 2, col + 2) && spotCheck(row - 3, col + 3)){
+    console.log(piece + "'s Win!")
+    return true;
+  } else {
+    return false;
   }
 };
