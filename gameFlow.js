@@ -1,7 +1,7 @@
-//_______________________________________________________________
+//---------------
 //Start on click.
-//_______________________________________________________________
-document.querySelector('.two_player_start').onclick = function() {
+//---------------
+document.querySelector('.twoPlayerStart').onclick = function() {
   twoPlayerGame = new Game;
   twoPlayerFlow = new Flow;
   twoPlayerFlow.startGame(twoPlayerGame);
@@ -21,7 +21,8 @@ Flow.prototype.startGame = function(game) {
   for(var i = 0; i <= 42; i++){
     game.printBoard();
     this.movePrompt();
-    if(game.winCheck(game.placePiece(this.col, this.piece))){
+    var temp = game.placePiece(this.col, this.piece);
+    if(game.winCheck(temp)){
       game.printBoard();
       break;
     }

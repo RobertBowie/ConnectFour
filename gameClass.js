@@ -34,45 +34,76 @@ Game.prototype.placePiece = function(col, piece) {
 };
 
 Game.prototype.spotCheck = function(modRow, modCol, piece) {
-  this.modRow = modRow;
-  this.modCol = modCol;
-  this.piece = piece;
-  return (this.board[modRow] !== undefined && this.board[modCol] !== undefined && this.board[modRow][modCol] === piece);
+  var modRow = modRow;
+  var modCol = modCol;
+  var piece = piece;
+  return (!!(this.board[modRow]) && !!(this.board[modRow][modCol]) && this.board[modRow][modCol] === piece);
 };
 
 Game.prototype.winCheck = function(rowColPieceArr){
   var row = rowColPieceArr[0];
   var col = rowColPieceArr[1];
   var piece = rowColPieceArr[2];
-  // var thisBoard = this.board;
-  // var spotCheck = function(modRow, modCol){
-  //   return (thisBoard[modRow] !== undefined && thisBoard[modCol] !== undefined && thisBoard[modRow][modCol] === piece);
-  // };
-
+//START of Horizontal win condition checks
   if(this.spotCheck(row, col + 1, piece) && this.spotCheck(row, col + 2, piece) && this.spotCheck(row, col + 3, piece)){
     console.log(piece + "'s Win!")
     return true;
-  } else if(this.spotCheck(row + 1, col + 1, piece) && this.spotCheck(row + 2, col + 2, piece) && this.spotCheck(row + 3, col + 3, piece)){
+  } else if(this.spotCheck(row, col + 1, piece) && this.spotCheck(row, col + 2, piece) && this.spotCheck(row, col - 1, piece)){
     console.log(piece + "'s Win!")
     return true;
-  } else if(this.spotCheck(row + 1, col, piece) && this.spotCheck(row + 2, col, piece) && this.spotCheck(row + 3, col, piece)){
-    console.log(piece + "'s Win!")
-    return true;
-  } else if(this.spotCheck(row - 1, col + 1, piece) && this.spotCheck(row - 2, col + 2, piece) && this.spotCheck(row - 3, col + 3, piece)){
+  } else if(this.spotCheck(row, col + 1, piece) && this.spotCheck(row, col - 1, piece) && this.spotCheck(row, col - 2, piece)){
     console.log(piece + "'s Win!")
     return true;
   } else if(this.spotCheck(row, col - 1, piece) && this.spotCheck(row, col - 2, piece) && this.spotCheck(row, col - 3, piece)){
     console.log(piece + "'s Win!")
     return true;
-  } else if(this.spotCheck(row - 1, col - 1, piece) && this.spotCheck(row - 2, col - 2, piece) && this.spotCheck(row - 3, col - 3, piece)){
+//END of Horizontal win condition checks
+//-------------------------------------------------------------------------------------------------------------------
+//START of Vertical win condition checks
+  } else if(this.spotCheck(row + 1, col, piece) && this.spotCheck(row + 2, col, piece) && this.spotCheck(row + 3, col, piece)){
+    console.log(piece + "'s Win!")
+    return true;
+  } else if(this.spotCheck(row + 1, col, piece) && this.spotCheck(row + 2, col, piece) && this.spotCheck(row - 1, col, piece)){
+    console.log(piece + "'s Win!")
+    return true;
+  } else if(this.spotCheck(row + 1, col, piece) && this.spotCheck(row - 1, col, piece) && this.spotCheck(row - 2, col, piece)){
     console.log(piece + "'s Win!")
     return true;
   } else if(this.spotCheck(row - 1, col, piece) && this.spotCheck(row - 2, col, piece) && this.spotCheck(row - 3, col, piece)){
     console.log(piece + "'s Win!")
     return true;
+//END of Vertical win condition checks
+//-------------------------------------------------------------------------------------------------------------------
+//START of Diagonal down-right win condition checks
+  } else if(this.spotCheck(row + 1, col + 1, piece) && this.spotCheck(row + 2, col + 2, piece) && this.spotCheck(row + 3, col + 3, piece)){
+    console.log(piece + "'s Win!")
+    return true;
+  } else if(this.spotCheck(row + 1, col + 1, piece) && this.spotCheck(row + 2, col + 2, piece) && this.spotCheck(row - 1, col - 1, piece)){
+    console.log(piece + "'s Win!")
+    return true;
+  } else if(this.spotCheck(row + 1, col + 1, piece) && this.spotCheck(row - 1, col - 1, piece) && this.spotCheck(row - 2, col - 2, piece)){
+    console.log(piece + "'s Win!")
+    return true;
+  } else if(this.spotCheck(row - 1, col - 1, piece) && this.spotCheck(row - 2, col - 2, piece) && this.spotCheck(row - 3, col - 3, piece)){
+    console.log(piece + "'s Win!")
+    return true;
+//END of Diagonal down-right win condition checks
+//-------------------------------------------------------------------------------------------------------------------
+//START of Diagonal down-left win condition checks
+  } else if(this.spotCheck(row + 1, col - 1, piece) && this.spotCheck(row + 2, col - 2, piece) && this.spotCheck(row + 3, col - 3, piece)){
+    console.log(piece + "'s Win!")
+    return true;
+  } else if(this.spotCheck(row + 1, col - 1, piece) && this.spotCheck(row + 2, col - 2, piece) && this.spotCheck(row - 1, col + 1, piece)){
+    console.log(piece + "'s Win!")
+    return true;
+  } else if(this.spotCheck(row + 1, col - 1, piece) && this.spotCheck(row - 1, col + 1, piece) && this.spotCheck(row - 2, col + 2, piece)){
+    console.log(piece + "'s Win!")
+    return true;
   } else if(this.spotCheck(row - 1, col + 1, piece) && this.spotCheck(row - 2, col + 2, piece) && this.spotCheck(row - 3, col + 3, piece)){
     console.log(piece + "'s Win!")
     return true;
+//END of Diagonal down-left win condition checks
+//-------------------------------------------------------------------------------------------------------------------
   } else {
     return false;
   }
