@@ -33,38 +33,44 @@ Game.prototype.placePiece = function(col, piece) {
   return [rowInd, colTrans, piece];
 };
 
-Game.prototype.winCheck = function(rowColPieceArr){
-  this.row = rowColPieceArr[0];
-  this.col = rowColPieceArr[1];
-  this.piece = rowColPieceArr[2];
-  var row = this.row, col = this.col, piece = this.piece;
-  var thisBoard = this.board;
-  var spotCheck = function(modRow, modCol){
-    return (thisBoard[modRow] !== undefined && thisBoard[modCol] !== undefined && thisBoard[modRow][modCol] === piece);
-  };
+Game.prototype.spotCheck = function(modRow, modCol, piece) {
+  this.modRow = modRow;
+  this.modCol = modCol;
+  this.piece = piece;
+  return (this.board[modRow] !== undefined && this.board[modCol] !== undefined && this.board[modRow][modCol] === piece);
+};
 
-  if(spotCheck(row, col + 1) && spotCheck(row, col + 2) && spotCheck(row, col + 3)){
+Game.prototype.winCheck = function(rowColPieceArr){
+  var row = rowColPieceArr[0];
+  var col = rowColPieceArr[1];
+  var piece = rowColPieceArr[2];
+  // var thisBoard = this.board;
+  // var spotCheck = function(modRow, modCol){
+  //   return (thisBoard[modRow] !== undefined && thisBoard[modCol] !== undefined && thisBoard[modRow][modCol] === piece);
+  // };
+
+  if(this.spotCheck(row, col + 1, piece) && this.spotCheck(row, col + 2, piece) && this.spotCheck(row, col + 3, piece)){
     console.log(piece + "'s Win!")
     return true;
-  } else if(spotCheck(row + 1, col + 1) && spotCheck(row + 2, col + 2) && spotCheck(row + 3, col + 3)){
+  } else if(this.spotCheck(row + 1, col + 1, piece) && this.spotCheck(row + 2, col + 2, piece) && this.spotCheck(row + 3, col + 3, piece)){
     console.log(piece + "'s Win!")
     return true;
-  } else if(spotCheck(row + 1, col) && spotCheck(row + 2, col) && spotCheck(row + 3, col)){
+  } else if(this.spotCheck(row + 1, col, piece) && this.spotCheck(row + 2, col, piece) && this.spotCheck(row + 3, col, piece)){
     console.log(piece + "'s Win!")
     return true;
-  } else if(spotCheck(row - 1, col + 1) && spotCheck(row - 2, col + 2) && spotCheck(row - 3, col + 3)){
+  } else if(this.spotCheck(row - 1, col + 1, piece) && this.spotCheck(row - 2, col + 2, piece) && this.spotCheck(row - 3, col + 3, piece)){
     console.log(piece + "'s Win!")
     return true;
-  } else if(spotCheck(row, col - 1) && spotCheck(row, col - 2) && spotCheck(row, col - 3)){
+  } else if(this.spotCheck(row, col - 1, piece) && this.spotCheck(row, col - 2, piece) && this.spotCheck(row, col - 3, piece)){
     console.log(piece + "'s Win!")
     return true;
-  } else if(spotCheck(row - 1, col - 1) && spotCheck(row - 2, col - 2) && spotCheck(row - 3, col - 3)){
+  } else if(this.spotCheck(row - 1, col - 1, piece) && this.spotCheck(row - 2, col - 2, piece) && this.spotCheck(row - 3, col - 3, piece)){
     console.log(piece + "'s Win!")
     return true;
-  } else if(spotCheck(row - 1, col) && spotCheck(row - 2, col) && spotCheck(row - 3, col)){
+  } else if(this.spotCheck(row - 1, col, piece) && this.spotCheck(row - 2, col, piece) && this.spotCheck(row - 3, col, piece)){
     console.log(piece + "'s Win!")
     return true;
-  } else if(spotCheck(row - 1, col + 1) && spotCheck(row - 2, col + 2) && spotCheck(row - 3, col + 3)){
+  } else if(this.spotCheck(row - 1, col + 1, piece) && this.spotCheck(row - 2, col + 2, piece) && this.spotCheck(row - 3, col + 3, piece)){
     console.log(piece + "'s Win!")
     return true;
   } else {
