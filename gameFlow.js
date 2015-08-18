@@ -1,11 +1,21 @@
 //---------------
 //Start on click.
 //---------------
+document.querySelector('.singlePlayerStart').onclick = function() {
+  singlePlayerGame = new Game;
+  singlePlayerFlow = new Flow;
+  singlePlayerAI = new Computer;
+  singlePlayerFlow.startGame(singlePlayerGame);
+};
+
 document.querySelector('.twoPlayerStart').onclick = function() {
   twoPlayerGame = new Game;
   twoPlayerFlow = new Flow;
   twoPlayerFlow.startGame(twoPlayerGame);
 };
+
+
+
 
 var Flow = function(){
 };
@@ -17,14 +27,38 @@ Flow.prototype.movePrompt = function() {
   console.log(this.col + " selected.");
 };
 
+Flow.prototype.onePlayerPrompt = function() {
+  this.piece = RED;
+  this.col = window.prompt("What column would you like to drop your piece into?", "1");
+  console.log(this.col + " selected.");
+};
+
 Flow.prototype.startGame = function(game) {
-  for(var i = 0; i <= 42; i++){
-    game.printBoard();
-    this.movePrompt();
-    var temp = game.placePiece(this.col, this.piece);
-    if(game.winCheck(temp)){
+  if(game === "twoPlayerGame"){
+    for(var i = 0; i <= 42; i++){
       game.printBoard();
-      break;
+      this.movePrompt();
+      var temp = game.placePiece(this.col, this.piece);
+      if(game.winCheck(temp)){
+        game.printBoard();
+        break;
+      }
+    }
+  } else {
+    for(var i = 0; i <= 42; i++){
+      game.printBoard();
+      this.onePlayerPrompt();
+      var opTemp = game.placePiece(this.col, this.piece);
+      if(game.winCheck(opTemp)){
+        game.printBoard();
+        break;
+      }
+      var compTemp = game.placePiece(singlePlayerAI.decideMove(), BLACK);
+      if(game.winCheck(compTemp)){
+        game.printBoard();
+        break;
+      }
     }
   }
 };
+
