@@ -33,7 +33,11 @@ Game.prototype.placePiece = function(col, piece) {
   return [rowInd, colTrans, piece];
 };
 
-Game.prototype.winCheck = function(row, col, piece){
+Game.prototype.winCheck = function(rowColPieceArr){
+  this.row = rowColPieceArr[0];
+  this.col = rowColPieceArr[1];
+  this.piece = rowColPieceArr[2];
+  var row = this.row, col = this.col, piece = this.piece;
   var thisBoard = this.board;
   var spotCheck = function(modRow, modCol){
     return (thisBoard[modRow] !== undefined && thisBoard[modCol] !== undefined && thisBoard[modRow][modCol] === piece);
