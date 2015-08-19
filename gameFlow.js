@@ -1,39 +1,105 @@
 //---------------
 //Start on click.
 //---------------
-document.querySelector('.singlePlayerStart').onclick = function() {
+document.querySelector('.singlePlayerStart').onclick = function(){
   singlePlayerGame = new Game;
   singlePlayerFlow = new Flow;
   singlePlayerAI = new Computer;
   singlePlayerFlow.startGame(singlePlayerGame);
 };
 
-document.querySelector('.twoPlayerStart').onclick = function() {
+document.querySelector('.twoPlayerStart').onclick = function(){
   twoPlayerGame = new Game;
   twoPlayerFlow = new Flow;
   twoPlayerFlow.startGame(twoPlayerGame);
 };
 
 
+//Test code and reference for click event and color change example
+var a = "5", b = "0";
+document.querySelector('[data-matrixval="'+a+'x'+b+'"]').onclick = function(){
+  if(this.style.backgroundColor !== 'black'){
+      this.style.backgroundColor = 'black';
+    } else {
+      this.style.backgroundColor = 'white';
+    }
+}
+//------------------------------------------------------------------------
+//Naive solution to figuring out where the user clicks to place piece.  Consider refactoring? moving?
+//------------------------------------------------------------------------
+var col0 = document.getElementsByClassName('boardCol_0');
+var col1 = document.getElementsByClassName('boardCol_1');
+var col2 = document.getElementsByClassName('boardCol_2');
+var col3 = document.getElementsByClassName('boardCol_3');
+var col4 = document.getElementsByClassName('boardCol_4');
+var col5 = document.getElementsByClassName('boardCol_5');
+var col6 = document.getElementsByClassName('boardCol_6');
+
+var colClicked0 = function(){
+  console.log('Place in 1 slot.');
+};
+var colClicked1 = function(){
+  console.log('Place in 2 slot.');
+};
+var colClicked2 = function(){
+  console.log('Place in 3 slot.');
+};
+var colClicked3 = function(){
+  console.log('Place in 4 slot.');
+};
+var colClicked4 = function(){
+  console.log('Place in 5 slot.');
+};
+var colClicked5 = function(){
+  console.log('Place in 6 slot.');
+};
+var colClicked6 = function(){
+  console.log('Place in 7 slot.');
+};
+
+for(var i = 0; i < col0.length; i++){
+  col0[i].addEventListener('click', colClicked0);
+};
+for(var i = 0; i < col1.length; i++){
+  col1[i].addEventListener('click', colClicked1);
+};
+for(var i = 0; i < col2.length; i++){
+  col2[i].addEventListener('click', colClicked2);
+};
+for(var i = 0; i < col3.length; i++){
+  col3[i].addEventListener('click', colClicked3);
+};
+for(var i = 0; i < col4.length; i++){
+  col4[i].addEventListener('click', colClicked4);
+};
+for(var i = 0; i < col5.length; i++){
+  col5[i].addEventListener('click', colClicked5);
+};
+for(var i = 0; i < col6.length; i++){
+  col6[i].addEventListener('click', colClicked6);
+};
+//------------------------------------------------------------------------
+//------------------------------------------------------------------------
+
 
 
 var Flow = function(){
 };
 
-Flow.prototype.movePrompt = function() {
+Flow.prototype.movePrompt = function(){
   this.piece = window.prompt("What color would you like to place?([R]ed or [B]lack)", RED);
   console.log(this.piece + " selected.");
   this.col = window.prompt("What column would you like to drop your piece into?", "1");
   console.log(this.col + " selected.");
 };
 
-Flow.prototype.onePlayerPrompt = function() {
+Flow.prototype.onePlayerPrompt = function(){
   this.piece = RED;
   this.col = window.prompt("What column would you like to drop your piece into?", "1");
   console.log(this.col + " selected.");
 };
 
-Flow.prototype.startGame = function(game) {
+Flow.prototype.startGame = function(game){
   if(game/*needs a good check for one player vs 2 player or separate method*/){
     for(var i = 0; i <= 42; i++){
       game.printBoard();

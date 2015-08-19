@@ -14,3 +14,13 @@
     margin-top: 50px;
     margin-left: 100px;
 }
+
+.redPiece {
+    text-indent: -9999px;
+    width: 40px;
+    height: 40px;
+    margin: 0px auto;
+    border-radius: 20px;
+    box-shadow: rgb(205, 15, 15) 0px 0px 0px 2px inset;
+    background: rgb(218, 18, 18);
+}

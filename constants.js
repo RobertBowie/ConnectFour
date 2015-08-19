@@ -1,1 +1,1 @@
-var RED = "R", BLACK = "B", BLANK = "_";
+var RED = "red", BLACK = "black", BLANK = "_";

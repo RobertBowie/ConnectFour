@@ -33,6 +33,15 @@ Game.prototype.placePiece = function(col, piece) {
   return [rowInd, colTrans, piece];
 };
 
+Game.prototype.markBoard = function(rowColPieceArr){
+  var row = rowColPieceArr[0].toString();
+  var col = rowColPieceArr[1].toString();
+  var piece = rowColPieceArr[2].toString();
+  var workOn = document.querySelector('[data-matrixval="'+row+'x'+col+'"]');
+  workOn.style.background = piece;
+  console.log(workOn, piece);
+};
+
 Game.prototype.spotCheck = function(modRow, modCol, piece) {
   var modRow = modRow;
   var modCol = modCol;
