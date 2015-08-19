@@ -34,7 +34,7 @@ Flow.prototype.onePlayerPrompt = function() {
 };
 
 Flow.prototype.startGame = function(game) {
-  if(game === "twoPlayerGame"){
+  if(game/*needs a good check for one player vs 2 player or separate method*/){
     for(var i = 0; i <= 42; i++){
       game.printBoard();
       this.movePrompt();
