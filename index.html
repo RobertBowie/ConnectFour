@@ -7,7 +7,65 @@
   <div class="singlePlayerStart">Click to Play!(Single Player)</div>
   <div class="twoPlayerStart">Click to Play!(Two Player)</div>
   <!-- <div class="single_player_start_med">Click to Play!(Single Player Medium Diff)</div> -->
-
+  <div id="container">
+<!-- Main div for everything -->
+    <table id="game" style="border-spacing: 2px; border-top-width: 5px; border-top-style: solid; border-top-color: rgb(237, 215, 71); border-bottom-width: 5px; border-bottom-style: solid; border-bottom-color: rgb(237, 215, 71); background: rgb(237, 215, 71);">
+      <tr class="boardRow_0">
+          <td class="boardCol_0" data-matrixval="0x0" style="width: 100px; height: 100px; border-radius: 70px; box-shadow: rgb(239, 218, 81) 0px 0px 0px 5px inset; background: white;"></td>
+          <td class="boardCol_1" data-matrixval="0x1" style="width: 100px; height: 100px; border-radius: 70px; box-shadow: rgb(239, 218, 81) 0px 0px 0px 5px inset; background: white;"></td>
+          <td class="boardCol_2" data-matrixval="0x2" style="width: 100px; height: 100px; border-radius: 70px; box-shadow: rgb(239, 218, 81) 0px 0px 0px 5px inset; background: white;"></td>
+          <td class="boardCol_3" data-matrixval="0x3" style="width: 100px; height: 100px; border-radius: 70px; box-shadow: rgb(239, 218, 81) 0px 0px 0px 5px inset; background: white;"></td>
+          <td class="boardCol_4" data-matrixval="0x4" style="width: 100px; height: 100px; border-radius: 70px; box-shadow: rgb(239, 218, 81) 0px 0px 0px 5px inset; background: white;"></td>
+          <td class="boardCol_5" data-matrixval="0x5" style="width: 100px; height: 100px; border-radius: 70px; box-shadow: rgb(239, 218, 81) 0px 0px 0px 5px inset; background: white;"></td>
+          <td class="boardCol_6" data-matrixval="0x6" style="width: 100px; height: 100px; border-radius: 70px; box-shadow: rgb(239, 218, 81) 0px 0px 0px 5px inset; background: white;"></td>
+      </tr>
+      <tr class="boardRow_1">
+          <td class="boardCol_0" data-matrixval="1x0" style="width: 100px; height: 100px; border-radius: 70px; box-shadow: rgb(239, 218, 81) 0px 0px 0px 5px inset; background: white;"></td>
+          <td class="boardCol_1" data-matrixval="1x1" style="width: 100px; height: 100px; border-radius: 70px; box-shadow: rgb(239, 218, 81) 0px 0px 0px 5px inset; background: white;"></td>
+          <td class="boardCol_2" data-matrixval="1x2" style="width: 100px; height: 100px; border-radius: 70px; box-shadow: rgb(239, 218, 81) 0px 0px 0px 5px inset; background: white;"></td>
+          <td class="boardCol_3" data-matrixval="1x3" style="width: 100px; height: 100px; border-radius: 70px; box-shadow: rgb(239, 218, 81) 0px 0px 0px 5px inset; background: white;"></td>
+          <td class="boardCol_4" data-matrixval="1x4" style="width: 100px; height: 100px; border-radius: 70px; box-shadow: rgb(239, 218, 81) 0px 0px 0px 5px inset; background: white;"></td>
+          <td class="boardCol_5" data-matrixval="1x5" style="width: 100px; height: 100px; border-radius: 70px; box-shadow: rgb(239, 218, 81) 0px 0px 0px 5px inset; background: white;"></td>
+          <td class="boardCol_6" data-matrixval="1x6" style="width: 100px; height: 100px; border-radius: 70px; box-shadow: rgb(239, 218, 81) 0px 0px 0px 5px inset; background: white;"></td>
+      </tr>
+      <tr class="boardRow_2">
+          <td class="boardCol_0" data-matrixval="2x0" style="width: 100px; height: 100px; border-radius: 70px; box-shadow: rgb(239, 218, 81) 0px 0px 0px 5px inset; background: white;"></td>
+          <td class="boardCol_1" data-matrixval="2x1" style="width: 100px; height: 100px; border-radius: 70px; box-shadow: rgb(239, 218, 81) 0px 0px 0px 5px inset; background: white;"></td>
+          <td class="boardCol_2" data-matrixval="2x2" style="width: 100px; height: 100px; border-radius: 70px; box-shadow: rgb(239, 218, 81) 0px 0px 0px 5px inset; background: white;"></td>
+          <td class="boardCol_3" data-matrixval="2x3" style="width: 100px; height: 100px; border-radius: 70px; box-shadow: rgb(239, 218, 81) 0px 0px 0px 5px inset; background: white;"></td>
+          <td class="boardCol_4" data-matrixval="2x4" style="width: 100px; height: 100px; border-radius: 70px; box-shadow: rgb(239, 218, 81) 0px 0px 0px 5px inset; background: white;"></td>
+          <td class="boardCol_5" data-matrixval="2x5" style="width: 100px; height: 100px; border-radius: 70px; box-shadow: rgb(239, 218, 81) 0px 0px 0px 5px inset; background: white;"></td>
+          <td class="boardCol_6" data-matrixval="2x6" style="width: 100px; height: 100px; border-radius: 70px; box-shadow: rgb(239, 218, 81) 0px 0px 0px 5px inset; background: white;"></td>
+      </tr>
+      <tr class="boardRow_3">
+          <td class="boardCol_0" data-matrixval="3x0" style="width: 100px; height: 100px; border-radius: 70px; box-shadow: rgb(239, 218, 81) 0px 0px 0px 5px inset; background: white;"></td>
+          <td class="boardCol_1" data-matrixval="3x1" style="width: 100px; height: 100px; border-radius: 70px; box-shadow: rgb(239, 218, 81) 0px 0px 0px 5px inset; background: white;"></td>
+          <td class="boardCol_2" data-matrixval="3x2" style="width: 100px; height: 100px; border-radius: 70px; box-shadow: rgb(239, 218, 81) 0px 0px 0px 5px inset; background: white;"></td>
+          <td class="boardCol_3" data-matrixval="3x3" style="width: 100px; height: 100px; border-radius: 70px; box-shadow: rgb(239, 218, 81) 0px 0px 0px 5px inset; background: white;"></td>
+          <td class="boardCol_4" data-matrixval="3x4" style="width: 100px; height: 100px; border-radius: 70px; box-shadow: rgb(239, 218, 81) 0px 0px 0px 5px inset; background: white;"></td>
+          <td class="boardCol_5" data-matrixval="3x5" style="width: 100px; height: 100px; border-radius: 70px; box-shadow: rgb(239, 218, 81) 0px 0px 0px 5px inset; background: white;"></td>
+          <td class="boardCol_6" data-matrixval="3x6" style="width: 100px; height: 100px; border-radius: 70px; box-shadow: rgb(239, 218, 81) 0px 0px 0px 5px inset; background: white;"></td>
+      </tr>
+      <tr class="boardRow_4">
+          <td class="boardCol_0" data-matrixval="4x0" style="width: 100px; height: 100px; border-radius: 70px; box-shadow: rgb(239, 218, 81) 0px 0px 0px 5px inset; background: white;"></td>
+          <td class="boardCol_1" data-matrixval="4x1" style="width: 100px; height: 100px; border-radius: 70px; box-shadow: rgb(239, 218, 81) 0px 0px 0px 5px inset; background: white;"></td>
+          <td class="boardCol_2" data-matrixval="4x2" style="width: 100px; height: 100px; border-radius: 70px; box-shadow: rgb(239, 218, 81) 0px 0px 0px 5px inset; background: white;"></td>
+          <td class="boardCol_3" data-matrixval="4x3" style="width: 100px; height: 100px; border-radius: 70px; box-shadow: rgb(239, 218, 81) 0px 0px 0px 5px inset; background: white;"></td>
+          <td class="boardCol_4" data-matrixval="4x4" style="width: 100px; height: 100px; border-radius: 70px; box-shadow: rgb(239, 218, 81) 0px 0px 0px 5px inset; background: white;"></td>
+          <td class="boardCol_5" data-matrixval="4x5" style="width: 100px; height: 100px; border-radius: 70px; box-shadow: rgb(239, 218, 81) 0px 0px 0px 5px inset; background: white;"></td>
+          <td class="boardCol_6" data-matrixval="4x6" style="width: 100px; height: 100px; border-radius: 70px; box-shadow: rgb(239, 218, 81) 0px 0px 0px 5px inset; background: white;"></td>
+      </tr>
+      <tr class="boardRow_5">
+          <td class="boardCol_0" data-matrixval="5x0" style="width: 100px; height: 100px; border-radius: 70px; box-shadow: rgb(239, 218, 81) 0px 0px 0px 5px inset; background: white;"></td>
+          <td class="boardCol_1" data-matrixval="5x1" style="width: 100px; height: 100px; border-radius: 70px; box-shadow: rgb(239, 218, 81) 0px 0px 0px 5px inset; background: white;"></td>
+          <td class="boardCol_2" data-matrixval="5x2" style="width: 100px; height: 100px; border-radius: 70px; box-shadow: rgb(239, 218, 81) 0px 0px 0px 5px inset; background: white;"></td>
+          <td class="boardCol_3" data-matrixval="5x3" style="width: 100px; height: 100px; border-radius: 70px; box-shadow: rgb(239, 218, 81) 0px 0px 0px 5px inset; background: white;"></td>
+          <td class="boardCol_4" data-matrixval="5x4" style="width: 100px; height: 100px; border-radius: 70px; box-shadow: rgb(239, 218, 81) 0px 0px 0px 5px inset; background: white;"></td>
+          <td class="boardCol_5" data-matrixval="5x5" style="width: 100px; height: 100px; border-radius: 70px; box-shadow: rgb(239, 218, 81) 0px 0px 0px 5px inset; background: white;"></td>
+          <td class="boardCol_6" data-matrixval="5x6" style="width: 100px; height: 100px; border-radius: 70px; box-shadow: rgb(239, 218, 81) 0px 0px 0px 5px inset; background: white;"></td>
+      </tr>
+    </table>
+  </div>
 
 
 

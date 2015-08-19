@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#container {
+    width: 1100px;
+    margin: 0 auto;
+    margin-top: 5px;
+}
+
+#game {
+    float: top;
+    margin-top: 50px;
+    margin-left: 100px;
+}
