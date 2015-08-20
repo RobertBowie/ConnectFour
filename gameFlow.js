@@ -8,11 +8,11 @@ document.querySelector('.singlePlayerStart').onclick = function(){
   singlePlayerFlow.startGame(singlePlayerGame);
 };
 
-document.querySelector('.twoPlayerStart').onclick = function(){
-  twoPlayerGame = new Game;
-  twoPlayerFlow = new Flow;
-  twoPlayerFlow.startGame(twoPlayerGame);
-};
+// document.querySelector('.twoPlayerStart').onclick = function(){
+//   twoPlayerGame = new Game;
+//   twoPlayerFlow = new Flow;
+//   twoPlayerFlow.startGame(twoPlayerGame);
+// };
 
 
 //Test code and reference for click event and color change example
@@ -52,11 +52,12 @@ Flow.prototype.startGame = function(game){
       game.markBoard(temp);
       if(game.winCheck(temp)){
         clearInterval(checkTimer);
-      }
-      var aiTemp = game.placePiece(singlePlayerAI.decideMove(), RED);
-      setTimeout(function(){game.markBoard(aiTemp)}, 500);
-      if(game.winCheck(temp)){
-        clearInterval(checkTimer);
+      } else {
+        var aiTemp = game.placePiece(singlePlayerAI.decideMove(), RED);
+        setTimeout(function(){game.markBoard(aiTemp)}, 500);
+        if(game.winCheck(temp)){
+          clearInterval(checkTimer);
+        }
       }
       innerMoved = false;
     }

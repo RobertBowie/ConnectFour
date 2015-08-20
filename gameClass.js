@@ -39,7 +39,6 @@ Game.prototype.markBoard = function(rowColPieceArr){
   var piece = rowColPieceArr[2].toString();
   var workOn = document.querySelector('[data-matrixval="'+row+'x'+col+'"]');
   workOn.style.background = piece;
-  console.log(workOn, piece);
 };
 
 Game.prototype.spotCheck = function(modRow, modCol, piece) {
