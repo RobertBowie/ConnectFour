@@ -24,82 +24,11 @@ document.querySelector('[data-matrixval="'+a+'x'+b+'"]').onclick = function(){
       this.style.backgroundColor = 'white';
     }
 }
-//------------------------------------------------------------------------
-//Naive solution to figuring out where the user clicks to place piece.  Consider refactoring? moving?
-//------------------------------------------------------------------------
-var col0 = document.getElementsByClassName('boardCol_0');
-var col1 = document.getElementsByClassName('boardCol_1');
-var col2 = document.getElementsByClassName('boardCol_2');
-var col3 = document.getElementsByClassName('boardCol_3');
-var col4 = document.getElementsByClassName('boardCol_4');
-var col5 = document.getElementsByClassName('boardCol_5');
-var col6 = document.getElementsByClassName('boardCol_6');
-
-var moveCol, movePiece;
-
-var colClicked0 = function(){
-  moveCol = 1;
-  movePiece = BLACK;
-  console.log('Place in 1 slot.');
-};
-var colClicked1 = function(){
-  moveCol = 2;
-  movePiece = BLACK;
-  console.log('Place in 2 slot.');
-};
-var colClicked2 = function(){
-  moveCol = 3;
-  movePiece = BLACK;
-  console.log('Place in 3 slot.');
-};
-var colClicked3 = function(){
-  moveCol = 4;
-  movePiece = BLACK;
-  console.log('Place in 4 slot.');
-};
-var colClicked4 = function(){
-  moveCol = 5;
-  movePiece = BLACK;
-  console.log('Place in 5 slot.');
-};
-var colClicked5 = function(){
-  moveCol = 6;
-  movePiece = BLACK;
-  console.log('Place in 6 slot.');
-};
-var colClicked6 = function(){
-  moveCol = 7;
-  movePiece = BLACK;
-  console.log('Place in 7 slot.');
-};
-
-for(var i = 0; i < col0.length; i++){
-  col0[i].addEventListener('click', colClicked0);
-};
-for(var i = 0; i < col1.length; i++){
-  col1[i].addEventListener('click', colClicked1);
-};
-for(var i = 0; i < col2.length; i++){
-  col2[i].addEventListener('click', colClicked2);
-};
-for(var i = 0; i < col3.length; i++){
-  col3[i].addEventListener('click', colClicked3);
-};
-for(var i = 0; i < col4.length; i++){
-  col4[i].addEventListener('click', colClicked4);
-};
-for(var i = 0; i < col5.length; i++){
-  col5[i].addEventListener('click', colClicked5);
-};
-for(var i = 0; i < col6.length; i++){
-  col6[i].addEventListener('click', colClicked6);
-};
-//------------------------------------------------------------------------
-//------------------------------------------------------------------------
 
 
 
 var Flow = function(){
+  this.buildListeners();
 };
 
 Flow.prototype.movePrompt = function(){
@@ -116,10 +45,110 @@ Flow.prototype.onePlayerPrompt = function(){
 };
 
 Flow.prototype.startGame = function(game){
-  /*Once the New/Start button is clicked and a Col is clicked*/
-  
-}
+  console.log(innerMoved);
+  var checkInnerMoved = function(){
+    if(innerMoved){
+      var temp = game.placePiece(moveCol, movePiece);
+      game.markBoard(temp);
+      if(game.winCheck(temp)){
+        clearInterval(checkTimer);
+      }
+      var aiTemp = game.placePiece(singlePlayerAI.decideMove(), RED);
+      setTimeout(function(){game.markBoard(aiTemp)}, 500);
+      if(game.winCheck(temp)){
+        clearInterval(checkTimer);
+      }
+      innerMoved = false;
+    }
+  }
+  var checkTimer = setInterval(checkInnerMoved, 300);
 
+};
+
+var innerMoved;
+var moveCol, movePiece;
+//------------------------------------------------------------------------
+//Consider refactoring?
+//------------------------------------------------------------------------
+Flow.prototype.buildListeners = function(){
+  var col0 = document.getElementsByClassName('boardCol_0');
+  var col1 = document.getElementsByClassName('boardCol_1');
+  var col2 = document.getElementsByClassName('boardCol_2');
+  var col3 = document.getElementsByClassName('boardCol_3');
+  var col4 = document.getElementsByClassName('boardCol_4');
+  var col5 = document.getElementsByClassName('boardCol_5');
+  var col6 = document.getElementsByClassName('boardCol_6');
+
+  innerMoved = false;
+
+  var colClicked0 = function(){
+    moveCol = 1;
+    movePiece = BLACK;
+    console.log('Place in 1 slot.');
+
+    innerMoved = true;
+  };
+  var colClicked1 = function(){
+    moveCol = 2;
+    movePiece = BLACK;
+    innerMoved = true;
+    console.log('Place in 2 slot.');
+  };
+  var colClicked2 = function(){
+    moveCol = 3;
+    movePiece = BLACK;
+    innerMoved = true;
+    console.log('Place in 3 slot.');
+  };
+  var colClicked3 = function(){
+    moveCol = 4;
+    movePiece = BLACK;
+    innerMoved = true;
+    console.log('Place in 4 slot.');
+  };
+  var colClicked4 = function(){
+    moveCol = 5;
+    movePiece = BLACK;
+    innerMoved = true;
+    console.log('Place in 5 slot.');
+  };
+  var colClicked5 = function(){
+    moveCol = 6;
+    movePiece = BLACK;
+    innerMoved = true;
+    console.log('Place in 6 slot.');
+  };
+  var colClicked6 = function(){
+    moveCol = 7;
+    movePiece = BLACK;
+    innerMoved = true;
+    console.log('Place in 7 slot.');
+  };
+
+  for(var i = 0; i < col0.length; i++){
+    col0[i].addEventListener('click', colClicked0);
+  };
+  for(var i = 0; i < col1.length; i++){
+    col1[i].addEventListener('click', colClicked1);
+  };
+  for(var i = 0; i < col2.length; i++){
+    col2[i].addEventListener('click', colClicked2);
+  };
+  for(var i = 0; i < col3.length; i++){
+    col3[i].addEventListener('click', colClicked3);
+  };
+  for(var i = 0; i < col4.length; i++){
+    col4[i].addEventListener('click', colClicked4);
+  };
+  for(var i = 0; i < col5.length; i++){
+    col5[i].addEventListener('click', colClicked5);
+  };
+  for(var i = 0; i < col6.length; i++){
+    col6[i].addEventListener('click', colClicked6);
+  };
+};
+//------------------------------------------------------------------------
+//------------------------------------------------------------------------
 // Flow.prototype.startGame = function(game){
 //   if(game/*needs a good check for one player vs 2 player or separate method*/){
 //     for(var i = 0; i <= 42; i++){
