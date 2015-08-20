@@ -5,6 +5,7 @@ document.querySelector('.singlePlayerStart').onclick = function(){
   singlePlayerGame = new Game;
   singlePlayerFlow = new Flow;
   singlePlayerAI = new Computer;
+  singlePlayerGame.clearBoard();
   singlePlayerFlow.startGame(singlePlayerGame);
 };
 
@@ -43,6 +44,8 @@ Flow.prototype.onePlayerPrompt = function(){
   this.col = window.prompt("What column would you like to drop your piece into?", "1");
   console.log(this.col + " selected.");
 };
+
+
 
 Flow.prototype.startGame = function(game){
   console.log(innerMoved);

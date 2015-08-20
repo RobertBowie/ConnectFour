@@ -41,6 +41,19 @@ Game.prototype.markBoard = function(rowColPieceArr){
   workOn.style.background = piece;
 };
 
+Game.prototype.clearBoard = function() {
+  var t = document.getElementById("game"),
+      tableRows = t.getElementsByTagName("tr"),
+      r = [], i, len, tds, j, jlen;
+
+  for ( i =0, len = tableRows.length; i<len; i++) {
+      tds = tableRows[i].getElementsByTagName('td');
+      for( j = 0, jlen = tds.length; j < jlen; j++) {
+          tds[j].style.background = 'white';
+      }
+  }
+};
+
 Game.prototype.spotCheck = function(modRow, modCol, piece) {
   var modRow = modRow;
   var modCol = modCol;
